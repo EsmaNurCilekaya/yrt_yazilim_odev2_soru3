@@ -1,6 +1,7 @@
 #ifndef enstr
 #define enstr
-#endif
+#include <stdio.h>
+#include "test.h"
 
 enum AccelRange{
   A_range_2G,
@@ -8,6 +9,7 @@ enum AccelRange{
   A_range_8G,
   A_range_16G,
 };
+typedef enum AccelRange AR;
 
 enum AccelBandwidth{
   A_bandwith_7_81,
@@ -19,8 +21,9 @@ enum AccelBandwidth{
   A_bandwith_500,
   A_bandwith_1000,
 };
+typedef enum AccelBandwidth AB;
 
-enum AccelMod{
+enum AccelOpMod{
   A_mod_normal,
   A_mod_suspend,
   A_mod_LowPower1,
@@ -28,3 +31,14 @@ enum AccelMod{
   A_mod_LowPower2,
   A_mod_DeepSuspend,
 };
+typedef enum AccelOpMod AOM;
+
+typedef struct{
+	AR AccelRange;
+	AB AccelBandwidth;
+	AOM AccelOpMod;
+	unsigned int AccConfigValue;
+}AccelConfig;
+
+#endif
+
